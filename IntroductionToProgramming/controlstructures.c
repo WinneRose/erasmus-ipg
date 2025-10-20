@@ -1,9 +1,10 @@
-﻿#include <stdio.h>
+﻿#include <inttypes.h>
+#include <math.h>
+#include <stdio.h>
 
 
 int main(int argc, char *argv[]) {
-
-
+    /*
     // Smaller to Bigger example:
     // input: 10 3
     // output: 3 10
@@ -209,4 +210,142 @@ int main(int argc, char *argv[]) {
     else {
         printf("Error: '%c' is not a letter!\n", letter);
     }
+
+    */
+
+
+    /*
+    int date , day , month , year,days;
+    printf("Enter a date (yyyy/mm/dd): ");
+    scanf("%d", &date);
+
+    year = date / 10000;
+    date = date % 10000;
+    month = (date / 100) ;
+    day = date % 100;
+
+    printf("Year: %d\n", year);
+    printf("Month: %d\n", month);
+    printf("Day: %d\n", day);
+
+    printf("--------------------- \n");
+
+
+
+    int dayPassed;
+    for (int i = 1; i < year; i++) {
+
+
+        if ((i % 4 == 0) && (i % 100 != 0) || (i % 400 == 0)) {
+            dayPassed += 366;
+        }else {
+            dayPassed += 365;
+        }
+    }
+
+
+    for (int i = 1; i < month; i++) {
+        switch (i) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                days = 31;
+                break;
+
+            case 4: case 6: case 9: case 11:
+                days = 30;
+                break;
+
+            case 2:
+                if ((i % 4 == 0) && (i % 100 != 0) || (i % 400 == 0)) {
+                    days = 29;
+                }else {
+                    days = 28;
+                }
+                break;
+
+        }
+        dayPassed += days ;
+    }
+    dayPassed += day;
+    printf("%d day passed \n", dayPassed);
+
+    int dateInitial = 20241006;
+    int dateFinal = 20251020;
+    int daysPassed = abs(dateFinal - dateInitial);
+    printf("%d days passed", daysPassed);
+    */
+
+
+
+    // Peasant Calculation
+    int M, N, R, S, sum;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &M, &N);
+
+    if ((M == 0) || (N == 0)) {
+        R = 0;
+    }
+
+    if ((M < 0 && N > 0) || (M > 0 && N < 0)) {
+        S = -1;
+    }
+    else {
+        S = 1;
+    }
+
+    if (M < 0) {
+        M *= -1;
+    }
+    if (N < 0) {
+        N *= -1;
+    }
+
+    while (M != 0) {
+        if (M % 2 != 0) {
+            R = R + N;
+        }
+        M = M / 2;
+        if (M == 0) {
+            if (S == -1) {
+                R *= -1;
+            }
+        }
+        N = N * 2;
+    }
+    printf("Result: %d", R);
 }
+
+
+
+
+
+    /*
+    if (M < 0 || N > 0 || M > 0 && N < 0) {
+        if (M < 0) {
+            M *= -1;
+        }
+        if (N < 0) {
+            N *= -1;
+        }
+    }
+
+    while (M >= 1) {
+
+
+        if (M % 2 != 0) {
+            sum += N;
+            printf("%d\t%d\t<-- Add\n", M, N);
+        } else {
+            printf("%d\t%d\n", M, N);
+        }
+
+        M = M / 2;
+        N = N * 2;
+    }
+    printf("The calculation of Peasant: %d", sum);
+*/
